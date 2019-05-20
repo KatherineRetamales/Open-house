@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import * as jQuery from 'jquery';
 
 @Component({
   selector: 'app-menu',
@@ -10,16 +11,34 @@ export class MenuComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    $(function() {
-      $('.toggle').click(function() {
-        $('.nav-item').toggleClass('slide-out');
-        $('.hamburger-1').toggleClass('cross-right');
-        $('.hamburger-2').toggleClass('cross-hide');
-        $('.hamburger-3').toggleClass('cross-left');
-        $('.wobble').addClass('ripple');
-        setTimeout(function() {
-          $('.wobble').removeClass('ripple');
-        }, 1000);
+    jQuery(function($) {
+      $('.sidebar-dropdown > a').click(function() {
+        $('.sidebar-submenu').slideUp(200);
+        if (
+          $(this)
+            .parent()
+            .hasClass('active')
+        ) {
+          $('.sidebar-dropdown').removeClass('active');
+          $(this)
+            .parent()
+            .removeClass('active');
+        } else {
+          $('.sidebar-dropdown').removeClass('active');
+          $(this)
+            .next('.sidebar-submenu')
+            .slideDown(200);
+          $(this)
+            .parent()
+            .addClass('active');
+        }
+      });
+
+      $('#close-sidebar').click(function() {
+        $('.page-wrapper').removeClass('toggled');
+      });
+      $('#show-sidebar').click(function() {
+        $('.page-wrapper').addClass('toggled');
       });
     });
   }
