@@ -74,7 +74,7 @@ body {
 }
 
 .page-wrapper .theme.chiller-theme {
-  background: #1e2229;
+  background: #211b2b;
 }
 
 /*----------------toggeled sidebar----------------*/
@@ -168,11 +168,16 @@ body {
   margin-right: 15px;
   overflow: hidden;
 }
+.logo{
+  width:100%;
+  max-width:70px;
+}
 
 .sidebar-wrapper .sidebar-header .user-pic img {
   object-fit: cover;
   height: 100%;
   width: 100%;
+  max-width: 80px;
 }
 
 .sidebar-wrapper .sidebar-header .user-info {
@@ -405,7 +410,7 @@ body {
 /*-----------------------------chiller-theme-------------------------------------------------*/
 
 .chiller-theme .sidebar-wrapper {
-    background: #31353D;
+    background:#211b2b;
 }
 
 .chiller-theme .sidebar-wrapper .sidebar-header,
