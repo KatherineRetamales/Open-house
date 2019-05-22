@@ -8,11 +8,12 @@ import { MenuComponent } from './menu/menu.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { RutaComponent } from './ruta/ruta.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { GeocodeComponent } from './geocode/geocode.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, MenuComponent, PrincipalComponent, RutaComponent],
+  declarations: [AppComponent, HomeComponent, MenuComponent, PrincipalComponent, RutaComponent,GeocodeComponent],
   imports: [BrowserModule, AppRoutingModule, NgxSpinnerModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
