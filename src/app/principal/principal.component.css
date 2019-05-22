@@ -17,3 +17,10 @@
   bottom: 0;
   position: absolute;
 }
+@media (max-width:780px){
+  .top-initial{
+    background-size: auto;
+    background-position: center;
+    height: 120px;
+  }
+}
