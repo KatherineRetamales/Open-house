@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 declare var H: any;
 
 @Injectable({
@@ -9,9 +10,9 @@ export class HereService {
   public geocoder: any;
 
   public constructor() {
-    this.platform = new H.servide.Platform({
-      app_id: 'azExf71DZ9K5PLG7rxqB',
-      appCode: 'T4nPUtBSokLxDp1YQDFz5Q',
+    this.platform = new H.service.Platform({
+      app_id: 'APP-ID-HERE',
+      app_code: 'APP-CODE-HERE',
     });
     this.geocoder = this.platform.getGeocodingService();
   }
@@ -37,6 +38,7 @@ export class HereService {
       );
     });
   }
+
   public getAddressFromLatLng(query: string) {
     return new Promise((resolve, reject) => {
       this.geocoder.reverseGeocode(

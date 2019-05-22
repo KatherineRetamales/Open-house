@@ -1,32 +1,41 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-
-declare var H: any;
+import { Component } from '@angular/core';
+import { HereService } from 'src/here.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
-  private platform: any;
+export class AppComponent {
+  public query: string;
+  public position: string;
+  public locations: Array<any>;
 
-  @ViewChild('map')
-  public mapElement: ElementRef;
+  public constructor(private here: HereService) {}
 
-  public constructor() {
-    this.platform = new H.service.Platform({
-      app_id: '5FcjVZI69NvLSO0NNyiw',
-      app_code: 'n3Tvm27JNHALxUlmHwptWQ',
-    });
+  public getAddress() {
+    if (this.query !== '') {
+      this.here.getAddress(this.query).then(
+        result => {
+          this.locations = result as Array<any>;
+        },
+        error => {
+          console.error(error);
+        }
+      );
+    }
   }
 
-  public ngOnInit() {}
-
-  public ngAfterViewInit() {
-    let defaultLayers = this.platform.createDefaultLayers();
-    let map = new H.Map(this.mapElement.nativeElement, defaultLayers.normal.map, {
-      zoom: 100,
-      center: { lat: 37.7397, lng: -121.4252 },
-    });
+  public getAddressFromLatLng() {
+    if (this.position !== '') {
+      this.here.getAddressFromLatLng(this.position).then(
+        result => {
+          this.locations = result as Array<any>;
+        },
+        error => {
+          console.error(error);
+        }
+      );
+    }
   }
 }
