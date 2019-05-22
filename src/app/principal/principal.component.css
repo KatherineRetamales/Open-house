@@ -8,6 +8,27 @@
   top: 0;
   position: absolute;
 }
+.icono-initial{
+  max-width: 150px;
+  margin: 0 auto; 
+  display: block;
+  width: 100%;
+  padding-top: 13px;
+}
+.description-initial{
+  color: #979797;
+  text-align: center;
+  font-size: 18px;
+  padding: 0 20px;
+  margin-top: 10px;
+}
+.title-initial{
+  text-align: center;
+  font-weight: 700;
+  color: #51626A;
+  letter-spacing:1px;
+  margin-top: 15px;
+}
 .bottom-end{
   background-image: url(../../assets/bottom.png);
   width: 100%;
@@ -17,10 +38,52 @@
   bottom: 0;
   position: absolute;
 }
+.slide-principal{
+  top: 50%;
+  margin: 140px auto 0 auto;
+  width: 100%;
+  max-width:600px;
+}
+.carousel-item{
+  background-color: #fff;
+}
+.carousel-indicators li {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color:#15B4F1; 
+  -webkit-border-radius: 50%;
+  -moz-border-radius:50%;
+}
+.buttons button{
+  display:block;
+  margin: 10px auto;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #15b4f1 !important;
+  border-color: #15B4F1 !important;
+  padding: 5px 40px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+}
+
 @media (max-width:780px){
   .top-initial{
+    background-image: url(../../assets/topwave2x.png);
     background-size: auto;
-    background-position: center;
-    height: 120px;
+    height: 130px;
+    width: 100%;
+  }
+  .bottom-end{
+    background-image: url(../../assets/bgwaves.png);
+    background-size: cover;
+  }
+  
+}
+@media(max-width: 360px){
+  .slide-principal{
+    margin: 50px auto 0 auto;
   }
 }
