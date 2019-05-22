@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-root',
@@ -6,10 +7,15 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  private platform: any;
+  constructor(private spinner: NgxSpinnerService) {}
 
-  @ViewChild('map')
-  public mapElement: ElementRef;
+  public ngOnInit() {
+    /** spinner starts on init */
+    this.spinner.show();
 
-  public ngOnInit() {}
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 5000);
+  }
 }
