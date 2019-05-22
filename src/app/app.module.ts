@@ -7,10 +7,11 @@ import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { RutaComponent } from './ruta/ruta.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, MenuComponent, PrincipalComponent, RutaComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, NgxSpinnerModule],
   providers: [],
   bootstrap: [AppComponent]
 })
