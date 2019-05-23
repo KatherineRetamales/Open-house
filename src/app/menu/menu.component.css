@@ -12,7 +12,8 @@
 }
 .icon-menus{
   width: 100%;
-  max-width: 40px;
+  max-width: 30px;
+  margin-right: 10px;
 }
 .logoubi{
   margin: 0 auto;
