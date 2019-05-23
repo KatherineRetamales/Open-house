@@ -96,7 +96,7 @@ export class RutaComponent implements OnInit, OnChanges {
           lineString.pushLatLngAlt(parts[0], parts[1]);
         });
         let routeLine = new H.map.Polyline(lineString, {
-          style: { strokeColor: "#15b4f1", lineWidth: 5 }
+          style: { strokeColor: "blue", lineWidth: 5 }
         });
         let startMarker = new H.map.Marker({
           lat: this.start.split(",")[0],

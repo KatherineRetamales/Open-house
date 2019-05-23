@@ -1,4 +1,4 @@
-import { Injectable, ElementRef, ViewChild } from '@angular/core';
+import { Injectable, ElementRef } from '@angular/core';
 
 declare var H: any;
 
@@ -6,7 +6,6 @@ declare var H: any;
   providedIn: 'root',
 })
 export class HereService {
- /*  @ViewChild("map")
   public platform: any;
   public geocoder: any;
   public map: any;
@@ -19,7 +18,7 @@ export class HereService {
     });
     this.geocoder = this.platform.getGeocodingService();
     const defaultLayers = this.platform.createDefaultLayers();
-    this.map = new H.Map(this.mapElement.nativeElement, defaultLayers.normal.map,{
+    this.map = new H.Map(this.mapElement.nativeElement, defaultLayers.normal.map, {
       zoom: '15',
       center: { lat: 'lat', lng: 'lng' },
     });
@@ -67,6 +66,5 @@ export class HereService {
         }
       );
     });
-  } */
+  }
 }
- 
