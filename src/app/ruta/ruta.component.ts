@@ -1,4 +1,14 @@
-import { Component, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnChanges,
+  SimpleChanges,
+  ViewChild,
+  ElementRef,
+  Input
+} from '@angular/core';
+import { NgModule } from '@angular/core';
+import { HereService } from 'src/here.service';
 
 declare var H: any;
 
@@ -8,7 +18,7 @@ declare var H: any;
   styleUrls: ['./ruta.component.css']
 })
 export class RutaComponent implements OnInit, OnChanges {
-  @ViewChild("map")
+  @ViewChild('map')
   public mapElement: ElementRef;
 
   @Input()
@@ -35,12 +45,15 @@ export class RutaComponent implements OnInit, OnChanges {
   private map: any;
   private router: any;
 
-  public constructor() { }
+  public constructor(private here: HereService) {
+    this.start = '-33.5600906,-70.6332687';
+    this.finish = '-33.6299234,-70.5918625';
+  }
 
   public ngOnInit() {
     this.platform = new H.service.Platform({
-      "app_id": this.appId,
-      "app_code": this.appCode
+      app_id: this.appId,
+      app_code: this.appCode
     });
     this.directions = [];
     this.router = this.platform.getRoutingService();
@@ -48,31 +61,30 @@ export class RutaComponent implements OnInit, OnChanges {
 
   public ngAfterViewInit() {
     let defaultLayers = this.platform.createDefaultLayers();
-    this.map = new H.Map(
-      this.mapElement.nativeElement,
-      defaultLayers.normal.map,
-      {
-        zoom: 4,
-        center: { lat: "37.0902", lng: "-95.7129" }
-      }
-    );
+    this.map = new H.Map(this.mapElement.nativeElement, defaultLayers.normal.map, {
+      zoom: 4,
+      center: { lat: '37.0902', lng: '-95.7129' }
+    });
     this.route(this.start, this.finish);
   }
 
   public ngOnChanges(changes: SimpleChanges) {
-    if ((changes["start"] && !changes["start"].isFirstChange()) || (changes["finish"] && !changes["finish"].isFirstChange())) {
+    if (
+      (changes['start'] && !changes['start'].isFirstChange()) ||
+      (changes['finish'] && !changes['finish'].isFirstChange())
+    ) {
       this.route(this.start, this.finish);
     }
   }
 
   public route(start: any, finish: any) {
     let params = {
-      "mode": "fastest;car",
-      "waypoint0": "geo!" + this.start,
-      "waypoint1": "geo!" + this.finish,
-      "language": 'es-es',
-      "representation": "display"
-    }
+      mode: 'fastest;car',
+      waypoint0: 'geo!' + this.start,
+      waypoint1: 'geo!' + this.finish,
+      language: 'es-es',
+      representation: 'display'
+    };
     this.map.removeObjects(this.map.getObjects());
     this.router.calculateRoute(params, data => {
       if (data.response) {
@@ -97,10 +109,6 @@ export class RutaComponent implements OnInit, OnChanges {
         this.map.addObjects([routeLine, startMarker, finishMarker]);
         this.map.setViewBounds(routeLine.getBounds());
       }
-    }, error => {
-      console.error(error);
-    });
+    );
   }
-  
-
 }

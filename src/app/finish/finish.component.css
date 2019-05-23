@@ -1,0 +1,50 @@
+.input-search{
+  position: absolute;
+  top: 100px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 80%;
+}
+.btn-send{
+    color: #fff;
+    background-color:rgba(28,149,165,1);
+    border-color: rgba(28,149,165,1);
+}
+.father-finish{
+  width: 100%;
+  height: 150px;
+}
+.division-3-finish{
+  margin-top: 20px;
+  width: 33.25%;
+  border-right: 1px solid rgb(131, 146, 153, .5);
+  float:left;
+  height: auto
+}
+.icono-finish, .icono-auto{
+  margin: 10px auto;
+  display: block;
+}
+.icono-auto{
+  width: 43px;
+}
+.title{
+  text-align: center;
+  color: #51626A;
+}
+.tarifa{
+  color: #1C94A5;
+  text-align:center;
+}
+.colectivos{
+  width: 100%;
+  height:30px;
+  background-color: #EDF1F2;
+}
+.colectivos p{
+  font-weight: 700;
+  text-align: center;
+  padding: 5px 0;
+  color: #51626A;
+}
