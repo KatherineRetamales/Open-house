@@ -86,35 +86,28 @@ export class RutaComponent implements OnInit, OnChanges {
       representation: 'display'
     };
     this.map.removeObjects(this.map.getObjects());
-    this.router.calculateRoute(
-      params,
-      data => {
-        if (data.response) {
-          this.directions = data.response.route[0].leg[0].maneuver;
-          data = data.response.route[0];
-          let lineString = new H.geo.LineString();
-          data.shape.forEach(point => {
-            let parts = point.split(',');
-            lineString.pushLatLngAlt(parts[0], parts[1]);
-          });
-          let routeLine = new H.map.Polyline(lineString, {
-            style: { strokeColor: 'blue', lineWidth: 5 }
-          });
-          let startMarker = new H.map.Marker({
-            lat: this.start.split(',')[0],
-            lng: this.start.split(',')[1]
-          });
-          let finishMarker = new H.map.Marker({
-            lat: this.finish.split(',')[0],
-            lng: this.finish.split(',')[1]
-          });
-
-          this.map.addObjects([routeLine, startMarker, finishMarker]);
-          this.map.setViewBounds(routeLine.getBounds());
-        }
-      },
-      error => {
-        console.error(error);
+    this.router.calculateRoute(params, data => {
+      if (data.response) {
+        this.directions = data.response.route[0].leg[0].maneuver;
+        data = data.response.route[0];
+        let lineString = new H.geo.LineString();
+        data.shape.forEach(point => {
+          let parts = point.split(",");
+          lineString.pushLatLngAlt(parts[0], parts[1]);
+        });
+        let routeLine = new H.map.Polyline(lineString, {
+          style: { strokeColor: "blue", lineWidth: 5 }
+        });
+        let startMarker = new H.map.Marker({
+          lat: this.start.split(",")[0],
+          lng: this.start.split(",")[1]
+        });
+        let finishMarker = new H.map.Marker({
+          lat: this.finish.split(",")[0],
+          lng: this.finish.split(",")[1]
+        });
+        this.map.addObjects([routeLine, startMarker, finishMarker]);
+        this.map.setViewBounds(routeLine.getBounds());
       }
     );
   }
