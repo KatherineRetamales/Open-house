@@ -39,8 +39,10 @@ export class RutaComponent implements OnInit, OnChanges {
 
   public ngOnInit() {
     this.platform = new H.service.Platform({
+      "useCIT" : true,
       "app_id": this.appId,
-      "app_code": this.appCode
+      "app_code": this.appCode,
+       "useHTTPS": true
     });
     this.directions = [];
     this.router = this.platform.getRoutingService();

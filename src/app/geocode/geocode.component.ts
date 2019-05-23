@@ -37,6 +37,7 @@ export class GeocodeComponent implements OnInit {
     let platform = new H.service.Platform({
       app_id: this.appId,
       app_code: this.appCode,
+      useHTTPS: true
     });
     let defaultLayers = platform.createDefaultLayers();
     let map = new H.Map(this.mapElement.nativeElement, defaultLayers.normal.map, {
