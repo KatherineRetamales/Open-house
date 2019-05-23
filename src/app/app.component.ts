@@ -10,12 +10,17 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 
 export class AppComponent implements OnInit {
+
+
   public query: string;
   public position: string;
   public locations: Array<any>;
 
   public start: string;
   public finish: string;
+
+  public appId: string;
+  public appCode: string;
 
   public constructor(private here: HereService,private spinner: NgxSpinnerService) {
     this.start = "-33.5600906,-70.6332687";

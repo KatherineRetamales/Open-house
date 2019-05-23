@@ -94,7 +94,6 @@ export class RutaComponent implements OnInit, OnChanges {
           lat: this.finish.split(",")[0],
           lng: this.finish.split(",")[1]
         });
-
         this.map.addObjects([routeLine, startMarker, finishMarker]);
         this.map.setViewBounds(routeLine.getBounds());
       }
