@@ -10,9 +10,10 @@ import { PrincipalComponent } from './principal/principal.component';
 import { RutaComponent } from './ruta/ruta.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { GeocodeComponent } from './geocode/geocode.component';
+import { FinishComponent } from './finish/finish.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, MenuComponent, PrincipalComponent, RutaComponent,GeocodeComponent],
+  declarations: [AppComponent, HomeComponent, MenuComponent, PrincipalComponent, RutaComponent,GeocodeComponent, FinishComponent],
   imports: [BrowserModule, AppRoutingModule, NgxSpinnerModule,FormsModule],
   providers: [],
   bootstrap: [AppComponent],

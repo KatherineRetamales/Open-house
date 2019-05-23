@@ -12,6 +12,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     jQuery(function($) {
+      $('.page-wrapper').removeClass('toggled');
       $('.sidebar-dropdown > a').click(function() {
         $('.sidebar-submenu').slideUp(200);
         if (
