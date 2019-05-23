@@ -14,7 +14,13 @@ export class AppComponent implements OnInit {
   public position: string;
   public locations: Array<any>;
 
-  public constructor(private here: HereService,private spinner: NgxSpinnerService) {}
+  public start: string;
+  public finish: string;
+
+  public constructor(private here: HereService,private spinner: NgxSpinnerService) {
+    this.start = "-33.5600906,-70.6332687";
+    this.finish = "-33.6299234,-70.5918625";
+  }
 
   public getAddress() {
     if (this.query !== '') {

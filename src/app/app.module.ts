@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +13,7 @@ import { GeocodeComponent } from './geocode/geocode.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, MenuComponent, PrincipalComponent, RutaComponent,GeocodeComponent],
-  imports: [BrowserModule, AppRoutingModule, NgxSpinnerModule],
+  imports: [BrowserModule, AppRoutingModule, NgxSpinnerModule,FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
