@@ -8,6 +8,7 @@ import {
   Input
 } from '@angular/core';
 import { NgModule } from '@angular/core';
+import { HereService } from 'src/here.service';
 
 declare var H: any;
 
@@ -44,7 +45,10 @@ export class RutaComponent implements OnInit, OnChanges {
   private map: any;
   private router: any;
 
-  public constructor() {}
+  public constructor(private here: HereService) {
+    this.start = '-33.5600906,-70.6332687';
+    this.finish = '-33.6299234,-70.5918625';
+  }
 
   public ngOnInit() {
     this.platform = new H.service.Platform({
