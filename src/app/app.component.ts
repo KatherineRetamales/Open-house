@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     this.finish = "-33.6299234,-70.5918625";
   }
 
-  public getAddress() {
+  /* public getAddress() {
     if (this.query !== '') {
       this.here.getAddress(this.query).then(
         result => {
@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
       );
     }
   }
-
+ */
   public ngOnInit() {
     /** spinner starts on init */
     this.spinner.show();
